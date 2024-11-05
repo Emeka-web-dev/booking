@@ -1,11 +1,10 @@
 "use server";
+import prisma from "@/data/prisma";
+import bcrypt from "bcrypt";
+import { DateTime } from "luxon";
+import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import { UserId } from "./get-userId";
-import prisma from "@/data/prisma";
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
-import { DateTime } from "luxon";
-import bcrypt from "bcrypt";
 
 export const handleDeleteHall = async (formData: FormData) => {
   const hallId = formData.get("id") as string;

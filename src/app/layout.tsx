@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import {Inter} from "next/font/google";
+import { Inter } from "next/font/google";
+
 import "./globals.css";
+
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import  { Toaster } from 'react-hot-toast';
+import { Toaster } from "react-hot-toast";
 import AuthContext from "@/context/AuthContext";
 
-const inter = Inter({subsets:["latin"]})
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,16 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      < AuthContext>
-      <body
-        className={inter.className}>
+      <AuthContext>
+        <body className={inter.className}>
           <main className="mx-auto max-w-6xl  sm:px-6 lg:px-8">
-            <Header/>
-              {children}
-              <Footer/>
-              <Toaster/>
+            <Header />
+            {children}
+            <Footer />
+            <Toaster />
           </main>
-      </body>
+        </body>
       </AuthContext>
     </html>
   );
